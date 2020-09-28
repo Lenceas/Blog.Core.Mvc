@@ -18,7 +18,7 @@ namespace Blog.Core.Mvc.Controllers
         }
 
         // GET: Administrator
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }
