@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.Core.Mvc.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,8 +10,15 @@ namespace Blog.Core.Mvc.Controllers
 {
     public class AdministratorController : Controller
     {
-        // GET: AdministratorController
-        public ActionResult Index()
+        private readonly MySqlDbContext _context;
+
+        public AdministratorController(MySqlDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Administrator
+        public async Task<IActionResult> Index()
         {
             return View();
         }
