@@ -13,7 +13,7 @@ namespace Blog.Core.Mvc.Data
             {
                 if (true)
                 {
-
+                    await context.Database.EnsureDeletedAsync();
                 }
             }
             catch (Exception ex)
