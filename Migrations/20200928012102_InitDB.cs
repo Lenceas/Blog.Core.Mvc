@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Blog.Core.Mvc.Migrations
 {
-    public partial class CreatDataBase : Migration
+    public partial class InitDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,8 +14,8 @@ namespace Blog.Core.Mvc.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    UserName = table.Column<string>(nullable: true),
-                    UserPwd = table.Column<string>(nullable: true),
+                    UserName = table.Column<string>(maxLength: 50, nullable: false),
+                    UserPwd = table.Column<string>(maxLength: 50, nullable: false),
                     Status = table.Column<int>(nullable: false),
                     CreatTime = table.Column<DateTime>(nullable: false),
                     EditTime = table.Column<DateTime>(nullable: false)

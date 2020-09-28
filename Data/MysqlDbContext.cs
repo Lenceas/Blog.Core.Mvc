@@ -13,14 +13,18 @@ namespace Blog.Core.Mvc.Data
         {
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseMySQL("这里填Mysql链接字符串");
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder.UseMySql("这里填Mysql链接字符串");
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Administrator>(entity =>
+            {
+                entity.Property(t => t.UserPwd).HasDefaultValue("admin888");
+            });
         }
 
         public DbSet<Administrator> administrators { get; set; }
