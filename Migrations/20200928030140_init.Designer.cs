@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog.Core.Mvc.Migrations
 {
     [DbContext(typeof(MySqlDbContext))]
-    [Migration("20200928023842_init")]
+    [Migration("20200928030140_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

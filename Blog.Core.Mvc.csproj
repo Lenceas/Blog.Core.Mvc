@@ -1,10 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>94685132-3a29-4e28-a4cc-d34ab79b5a0f</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200928023842_init.cs" />
+    <Compile Remove="Migrations\20200928023842_init.Designer.cs" />
     <Compile Remove="Migrations\20200928024140_init_02.cs" />
     <Compile Remove="Migrations\20200928024140_init_02.Designer.cs" />
     <Compile Remove="Migrations\20200928024218_init_03.cs" />

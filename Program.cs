@@ -36,7 +36,7 @@ namespace Blog.Core.Mvc
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:122").UseStartup<Startup>();
                 });
     }
 }
