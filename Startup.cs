@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.Core.Mvc.Common;
 using Blog.Core.Mvc.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,9 +25,10 @@ namespace Blog.Core.Mvc
         // 运行时将调用此方法。 使用此方法将服务添加到容器。
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddSingleton(new AppSettings(Configuration));
+            services.AddDbContext<MySqlDbContext>();
 
-            services.AddDbContext<MysqlDbContext>(options => options.UseMySql(Configuration.GetConnectionString("Mysql")));
+            services.AddControllersWithViews();
         }
 
         // 运行时将调用此方法。 使用此方法来配置HTTP请求管道。

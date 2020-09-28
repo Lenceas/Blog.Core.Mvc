@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Blog.Core.Mvc.Migrations
 {
-    [DbContext(typeof(MysqlDbContext))]
-    partial class MysqlDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(MySqlDbContext))]
+    partial class MySqlDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -24,13 +24,21 @@ namespace Blog.Core.Mvc.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatTime")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("EditTime")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("Guid")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("SortId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdateTime")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -44,7 +52,7 @@ namespace Blog.Core.Mvc.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("administrators");
+                    b.ToTable("Administrator");
                 });
 #pragma warning restore 612, 618
         }
